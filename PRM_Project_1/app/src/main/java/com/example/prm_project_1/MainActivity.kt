@@ -1,33 +1,25 @@
 package com.example.prm_project_1
 
-import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.text.Editable
-import android.util.Log
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.prm_project_1.adapter.TaskAdapter
 import com.example.prm_project_1.databinding.ActivityMain2Binding
-import com.example.prm_project_1.databinding.ActivityTaskDetailsBinding
 import java.time.LocalDateTime
-import java.time.Period
 
 class MainActivity : AppCompatActivity() {
 
     private val binding by lazy {ActivityMain2Binding.inflate(layoutInflater)}
 
-    private val taskAdapter by lazy {TaskAdapter(this)}
+    private val taskAdapter by lazy {TaskAdapter(this, DataStorage.taskList)}
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        addAllData(taskAdapter)
         taskAdapter.sortTaskList()
         var layout = LinearLayoutManager(this@MainActivity)
         layout.orientation = LinearLayoutManager.VERTICAL
@@ -55,7 +47,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addAllData(adapter: TaskAdapter){
-        adapter.addTask(DataStorage.taskList)
+        adapter.addTasks(DataStorage.taskList)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

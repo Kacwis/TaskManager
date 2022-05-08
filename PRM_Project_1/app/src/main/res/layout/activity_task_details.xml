@@ -8,18 +8,25 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-16dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
                 android:id="@+id/taskDetailsTitleName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="76dp"
+                android:layout_marginTop="50dp"
+                android:letterSpacing="0.1"
                 android:text="TextView"
-                android:textSize="24sp"
+                android:textAllCaps="true"
+                android:textColor="#FF8600B3"
+                android:textSize="30sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -28,104 +35,127 @@
                 android:id="@+id/taskDetailsDeadlineLabel"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="76dp"
-                android:textAlignment="center"
+                android:layout_marginTop="60dp"
+                android:letterSpacing="0.05"
                 android:text="@string/task_deadline_label"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#FF8600B3"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/taskDetailsTitleName" />
 
             <TextView
                 android:id="@+id/taskDetailsEstimatedTimeLabel"
                 android:layout_width="130dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="60dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="50dp"
+                android:letterSpacing="0.05"
                 android:text="@string/estimated_time_label"
                 android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#FF8600B3"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/startingDateOutput" />
 
             <TextView
                 android:id="@+id/taskDetailsProgressLabel"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="88dp"
+                android:layout_marginTop="50dp"
+                android:letterSpacing="0.05"
                 android:text="@string/task_progress_label"
                 android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#FF8600B3"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/taskDetailsEstimatedTimeLabel" />
+                app:layout_constraintTop_toBottomOf="@+id/taskDetailsEstimatedTimeOutput" />
 
             <TextView
                 android:id="@+id/taskDetailsDeadlineOutput"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="76dp"
+                android:layout_marginTop="20dp"
                 android:text="TextView"
-                app:layout_constraintStart_toEndOf="@+id/taskDetailsDeadlineLabel"
-                app:layout_constraintTop_toBottomOf="@+id/taskDetailsTitleName" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/taskDetailsDeadlineLabel" />
 
             <TextView
                 android:id="@+id/taskDetailsEstimatedTimeOutput"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="140dp"
+                android:layout_marginTop="20dp"
                 android:text="TextView"
-                app:layout_constraintStart_toEndOf="@+id/taskDetailsEstimatedTimeLabel"
-                app:layout_constraintTop_toBottomOf="@+id/taskDetailsDeadlineOutput" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/taskDetailsEstimatedTimeLabel" />
 
             <Button
                 android:id="@+id/returnButton"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="140dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="100dp"
                 android:text="@string/return_button"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTaskButton" />
+                app:layout_constraintTop_toBottomOf="@+id/editTaskButton"
+                app:layout_constraintVertical_bias="1.0" />
 
             <ImageView
                 android:id="@+id/progressPieChart"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="36dp"
-                app:layout_constraintStart_toEndOf="@+id/taskDetailsProgressLabel"
-                app:layout_constraintTop_toBottomOf="@+id/taskDetailsEstimatedTimeOutput"
+                android:layout_marginTop="60dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/taskDetailsProgressLabel"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="130dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="50dp"
+                android:letterSpacing="0.05"
                 android:text="@string/task_start_date_label"
                 android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#FF8600B3"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/taskDetailsDeadlineLabel" />
+                app:layout_constraintTop_toBottomOf="@+id/taskDetailsDeadlineOutput" />
 
             <TextView
                 android:id="@+id/startingDateOutput"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="20dp"
                 android:text="TextView"
-                app:layout_constraintStart_toEndOf="@+id/textView"
-                app:layout_constraintTop_toBottomOf="@+id/taskDetailsDeadlineOutput" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
             <Button
                 android:id="@+id/changeProgressButton"
-                android:layout_width="82dp"
+                android:layout_width="90dp"
                 android:layout_height="38dp"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="10dp"
                 android:text="Zmien"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/taskDetailsProgressLabel" />
 
@@ -133,21 +163,22 @@
                 android:id="@+id/progressSpinner"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="10dp"
                 android:visibility="gone"
-                app:layout_constraintStart_toEndOf="@+id/taskDetailsProgressLabel"
-                app:layout_constraintTop_toBottomOf="@+id/taskDetailsEstimatedTimeOutput" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/taskDetailsProgressLabel" />
 
             <Button
                 android:id="@+id/progressChangeConfirmButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="60dp"
                 android:background="@drawable/confirmation_logo"
-                android:visibility="gone"
                 android:text=""
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.35"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/taskDetailsProgressLabel" />
 
@@ -155,21 +186,22 @@
                 android:id="@+id/progressChangeCancelButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="60dp"
                 android:background="@drawable/cancel_icon"
-                android:visibility="gone"
                 android:text=""
-                app:layout_constraintStart_toEndOf="@+id/progressChangeConfirmButton"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.65"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/taskDetailsProgressLabel" />
 
             <Button
                 android:id="@+id/editTaskButton"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="140dp"
-                android:layout_marginTop="92dp"
+                android:layout_marginTop="256dp"
                 android:text="@string/edit_task_button"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/taskDetailsProgressLabel" />
 

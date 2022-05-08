@@ -7,6 +7,7 @@
     tools:context=".NewTaskScreen">
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,9 +21,11 @@
                 android:id="@+id/newEditTaskTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="84dp"
+                android:layout_marginTop="40dp"
                 android:text="@string/new_task_title"
+                android:textColor="#FF8600B3"
                 android:textSize="24sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -31,11 +34,15 @@
                 android:id="@+id/newTaskNameLabel"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="56dp"
+                android:layout_marginTop="48dp"
+                android:letterSpacing="0.05"
                 android:text="@string/task_name_label"
                 android:textAlignment="center"
-                android:textSize="17sp"
+                android:textColor="#FF8600B3"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/newEditTaskTitle" />
 
@@ -43,71 +50,82 @@
                 android:id="@+id/newTaskDeadlineLabel"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="44dp"
+                android:layout_marginTop="50dp"
+                android:letterSpacing="0.05"
                 android:text="@string/task_deadline_label"
                 android:textAlignment="center"
-                android:textSize="17sp"
+                android:textColor="#FF8600B3"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/newTaskNameLabel" />
+                app:layout_constraintTop_toBottomOf="@+id/newTaskNameInput" />
 
             <TextView
                 android:id="@+id/newTaskPriorityLabel"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="50dp"
+                android:letterSpacing="0.05"
                 android:text="@string/task_priority_label"
                 android:textAlignment="center"
-                android:textSize="17sp"
+                android:textColor="#FF8600B3"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/newTaskDeadlineLabel" />
+                app:layout_constraintTop_toBottomOf="@+id/pickDateButton" />
 
             <TextView
                 android:id="@+id/newTaskProgress"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="56dp"
+                android:layout_marginTop="50dp"
+                android:letterSpacing="0.05"
                 android:text="@string/task_progress_label"
                 android:textAlignment="center"
-                android:textSize="17sp"
+                android:textColor="#FF8600B3"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.505"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/newTaskPriorityLabel" />
+                app:layout_constraintTop_toBottomOf="@+id/priorityLevelSpinner" />
 
             <EditText
                 android:id="@+id/newTaskNameInput"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="44dp"
+                android:layout_marginTop="20dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text=""
                 android:textAlignment="center"
-                app:layout_constraintStart_toEndOf="@+id/newTaskNameLabel"
-                app:layout_constraintTop_toBottomOf="@+id/newEditTaskTitle" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/newTaskNameLabel" />
 
             <EditText
                 android:id="@+id/newTaskProgressInput"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:ems="10"
                 android:inputType="number"
                 android:text="0"
                 android:textAlignment="center"
-                app:layout_constraintStart_toEndOf="@+id/newTaskProgress"
-                app:layout_constraintTop_toBottomOf="@+id/priorityLevelSpinner" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/newTaskProgress" />
 
             <Button
                 android:id="@+id/addEditTaskButton"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="160dp"
-                android:layout_marginTop="52dp"
+                android:layout_marginTop="50dp"
                 android:text="@string/add_task_button"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/estimatedTimeInput" />
 
@@ -115,69 +133,88 @@
                 android:id="@+id/testButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="56dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/time_logo"
-                app:layout_constraintStart_toEndOf="@+id/newTaskDeadlineLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.35"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dateTimeOutput" />
 
             <Button
                 android:id="@+id/pickDateButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/calendar_icon"
-                app:layout_constraintStart_toEndOf="@+id/testButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.63"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/dateTimeOutput" />
 
             <TextView
                 android:id="@+id/dateTimeOutput"
-                android:layout_width="200dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="24dp"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
                 android:text="2012-02-02 10:02"
                 android:textAlignment="center"
                 android:textSize="18sp"
-                app:layout_constraintStart_toEndOf="@+id/newTaskDeadlineLabel"
-                app:layout_constraintTop_toBottomOf="@+id/newTaskNameInput" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/newTaskDeadlineLabel" />
 
             <Spinner
                 android:id="@+id/priorityLevelSpinner"
-                android:layout_width="200dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="112dp"
+                android:layout_marginTop="20dp"
                 android:spinnerMode="dropdown"
-                app:layout_constraintStart_toEndOf="@+id/newTaskPriorityLabel"
-                app:layout_constraintTop_toBottomOf="@+id/dateTimeOutput" />
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/newTaskPriorityLabel" />
 
             <TextView
                 android:id="@+id/estimatedTimeLabel"
-                android:layout_width="122dp"
+                android:layout_width="140dp"
                 android:layout_height="46dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="50dp"
+                android:letterSpacing="0.05"
                 android:text="@string/estimated_time_label"
                 android:textAlignment="center"
-                android:textSize="17sp"
+                android:textColor="#FF8600B3"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/newTaskProgress" />
+                app:layout_constraintTop_toBottomOf="@+id/newTaskProgressInput" />
 
             <EditText
                 android:id="@+id/estimatedTimeInput"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="36dp"
+                android:layout_marginTop="20dp"
                 android:ems="10"
                 android:inputType="number"
                 android:text="0"
                 android:textAlignment="center"
-                app:layout_constraintStart_toEndOf="@+id/estimatedTimeLabel"
-                app:layout_constraintTop_toBottomOf="@+id/newTaskProgressInput" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/estimatedTimeLabel" />
+
+            <Button
+                android:id="@+id/newEditTaskReturnButton"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/return_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addEditTaskButton" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

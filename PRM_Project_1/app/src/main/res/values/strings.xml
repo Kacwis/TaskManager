@@ -17,6 +17,7 @@
     <string name="invalid_esitmated_time_label">Liczba powinna być większa niż 0 oraz kończyć sie przed deadlinem</string>
     <string name="task_start_date_label">Rozpoczecie</string>
     <string name="edit_task_button">EDYTUJ</string>
+    <string name="delete_task_button">Usuń</string>
     <string-array name="priority_levels">
         <item>Wysokie</item>
         <item>Srednie</item>

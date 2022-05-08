@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -18,23 +19,23 @@ class TaskDetails : AppCompatActivity() {
 
     private var currentProgress: Double = 0.0
 
-    private val currentName: String = intent.extras?.get("task_name").toString()
+    private var currentName: String = ""
 
-    private val currentDeadline: LocalDateTime = intent.extras?.get("task_deadline") as LocalDateTime
+    @RequiresApi(Build.VERSION_CODES.O)
+    private var currentDeadline: LocalDateTime = LocalDateTime.now()
 
-    private val currentEstimatedTime: 
+    @RequiresApi(Build.VERSION_CODES.O)
+    private var currentEstimatedTime: LocalDateTime = LocalDateTime.now()
 
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        currentProgress = intent.getDoubleExtra("task_progress", 0.0)
+        setAllTaskData()
         setTextForAllTextViews()
         binding.editTaskButton.setOnClickListener {
-            var intent = Intent(this, NewTaskScreen::class.java)
-            intent.putExtra("is_new_task_mode", false)
-            intent.putExtra("task_name", intent.extras)
+            startEditTaskActivity()
         }
         binding.returnButton.setOnClickListener {
             var intent = Intent(this, MainActivity::class.java)
@@ -49,16 +50,29 @@ class TaskDetails : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setTextForAllTextViews(){
         binding.taskDetailsTitleName.text = intent.extras?.get("task_name").toString()
-        binding.taskDetailsDeadlineOutput.text = formatDateString(intent.extras?.get("task_deadline") as LocalDateTime)
-        binding.taskDetailsEstimatedTimeOutput.text = intent.extras?.get("task_estimated_time").toString()
+        binding.taskDetailsDeadlineOutput.text = formatDateString(currentDeadline)
+        binding.taskDetailsEstimatedTimeOutput.text = formatDateString(currentEstimatedTime)
         binding.startingDateOutput.text = formatDateString(intent.extras?.get("task_starting_date") as LocalDateTime)
-//        binding.taskDetailsProgressOutput.text = intent.extras?.get("task_progress").toString()
     }
 
     private fun formatDateString(date: LocalDateTime): String{
         var stringDate = date.toString()
-        stringDate = stringDate.replace("T", " ").substring(0, stringDate.length - 3)
+        Log.d("Time", stringDate)
+        stringDate = stringDate.replace("T", " ").substring(0, stringDate.length - 4)
+        Log.d("Time_formatted", stringDate)
         return stringDate
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun startEditTaskActivity(){
+        var intent = Intent(this, NewTaskScreen::class.java)
+        intent.putExtra("is_new_task_mode", false)
+        intent.putExtra("task_name", currentName)
+        intent.putExtra("task_deadline", currentDeadline)
+        intent.putExtra("task_estimated_time", currentEstimatedTime)
+        intent.putExtra("task_progress", currentProgress)
+        startActivity(intent)
+        finish()
     }
 
     private fun spinner(){
@@ -83,10 +97,9 @@ class TaskDetails : AppCompatActivity() {
         binding.progressChangeCancelButton.setOnClickListener {
             hideAllProgressChangeElements()
         }
-
     }
 
-    fun changeProgress(taskName: String, newProgress: Int){
+    fun changeProgress(newProgress: Int){
         this.currentProgress = newProgress.toDouble()
     }
 
@@ -108,6 +121,14 @@ class TaskDetails : AppCompatActivity() {
         binding.changeProgressButton.visibility = View.VISIBLE
         binding.progressChangeConfirmButton.visibility = View.GONE
         binding.progressChangeCancelButton.visibility = View.GONE
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun setAllTaskData(){
+        currentName = intent.extras?.get("task_name").toString()
+        currentDeadline = intent.extras?.get("task_deadline") as LocalDateTime
+        currentEstimatedTime = intent.extras?.get("task_estimated_time") as LocalDateTime
+        currentProgress = intent.getDoubleExtra("task_progress", 0.0)
     }
 
 

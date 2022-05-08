@@ -4,11 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Kacpe/AndroidStudioProjects/PRM_Project_1/app/src/main/res/drawable/border.xml" value="0.332" />
+        <entry key="..\:/Users/Kacpe/AndroidStudioProjects/PRM_Project_1/app/src/main/res/drawable/fill_background_violet.xml" value="0.1905" />
         <entry key="..\:/Users/Kacpe/AndroidStudioProjects/PRM_Project_1/app/src/main/res/layout/activity_main2.xml" value="0.22" />
         <entry key="..\:/Users/Kacpe/AndroidStudioProjects/PRM_Project_1/app/src/main/res/layout/activity_new_task_screen.xml" value="0.3009833262077811" />
         <entry key="..\:/Users/Kacpe/AndroidStudioProjects/PRM_Project_1/app/src/main/res/layout/activity_task_details.xml" value="0.33" />
         <entry key="..\:/Users/Kacpe/AndroidStudioProjects/PRM_Project_1/app/src/main/res/layout/task_list_item.xml" value="0.5" />
         <entry key="..\:/Users/Kacpe/AndroidStudioProjects/PRM_Project_1/app/src/main/res/layout/task_weekly_list_item.xml" value="0.22" />
+        <entry key="..\:/Users/Kacpe/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_dropdown_item.xml" value="0.21547669944420692" />
       </map>
     </option>
   </component>

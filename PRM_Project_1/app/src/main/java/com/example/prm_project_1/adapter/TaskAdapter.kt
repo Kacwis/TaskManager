@@ -1,7 +1,5 @@
 package com.example.prm_project_1.adapter
 
-import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Build
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,17 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.prm_project_1.DataStorage
 import com.example.prm_project_1.MainActivity
 import com.example.prm_project_1.Task
-import com.example.prm_project_1.TaskDetails
-import com.example.prm_project_1.databinding.ActivityMain2Binding
 import com.example.prm_project_1.databinding.TaskListItemBinding
+import com.example.prm_project_1.fragment.RemoveTaskFragment
 import com.example.prm_project_1.holder.TaskViewHolder
-import java.io.Serializable
-import java.time.LocalDateTime
 
-class TaskAdapter(private val mainActivity: MainActivity) : RecyclerView.Adapter<TaskViewHolder>(){
+class TaskAdapter(private val mainActivity: MainActivity, taskList: MutableList<Task>) : RecyclerView.Adapter<TaskViewHolder>(){
 
-    val taskList = mutableListOf<Task>()
-
+    val taskList = taskList
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val binding = TaskListItemBinding.inflate(
@@ -42,9 +36,14 @@ class TaskAdapter(private val mainActivity: MainActivity) : RecyclerView.Adapter
         holder.itemView.setOnClickListener {
             mainActivity.startTaskDetailsActivity(taskList[position])
         }
+        holder.itemView.setOnLongClickListener {
+            val fragment = RemoveTaskFragment(position, this, taskList[position].name)
+            fragment.show(mainActivity.supportFragmentManager, "removing task")
+            return@setOnLongClickListener true
+        }
     }
 
-    fun addTask(taskList: MutableList<Task>){
+    fun addTasks(taskList: MutableList<Task>){
         this.taskList.run{
             clear()
             addAll(taskList)
@@ -53,7 +52,11 @@ class TaskAdapter(private val mainActivity: MainActivity) : RecyclerView.Adapter
         notifyDataSetChanged()
     }
 
-
+    fun removeTask(position: Int){
+        taskList.removeAt(position)
+        notifyItemRemoved(position)
+        notifyItemRangeChanged(position, itemCount)
+    }
 
     fun sortTaskList(){
         taskList.sortBy { task -> task.deadline}

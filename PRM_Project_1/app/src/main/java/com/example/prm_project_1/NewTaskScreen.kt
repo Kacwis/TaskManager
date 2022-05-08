@@ -32,12 +32,13 @@ class NewTaskScreen : AppCompatActivity() {
 
     private var currentTaskName: String = ""
 
-    private var isNewTaskMode = intent.extras?.get("is_new_task_mode") as Boolean
+    private var isNewTaskMode = true
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        isNewTaskMode = intent.extras?.get("is_new_task_mode") as Boolean
         if(isNewTaskMode)
             newTaskMode()
         else
@@ -47,6 +48,9 @@ class NewTaskScreen : AppCompatActivity() {
         }
         binding.pickDateButton.setOnClickListener {
             showDatePickerDialog(binding.root)
+        }
+        binding.newEditTaskReturnButton.setOnClickListener {
+            startMainActivity()
         }
         spinner()
     }
@@ -69,9 +73,9 @@ class NewTaskScreen : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setALlViewsForEditMode(){
         currentTaskName = intent.getStringExtra("task_name").toString()
-        var currentEstimatedDays = Period.between((intent.extras?.get("task_deadlie") as LocalDateTime).toLocalDate(), (intent.extras?.get("task_estimated_time") as LocalDateTime).toLocalDate()).days
+        var currentEstimatedDays = Period.between((intent.extras?.get("task_deadline") as LocalDateTime).toLocalDate(), (intent.extras?.get("task_estimated_time") as LocalDateTime).toLocalDate()).days * (-1)
         val deadlineString = intent.extras?.get("task_deadline").toString().replace("T", " ")
-        binding.dateTimeOutput.text = deadlineString.substring(0, deadlineString.length - 3)
+        binding.dateTimeOutput.text = deadlineString.substring(0, deadlineString.length - 7)
         binding.newTaskNameInput.text = Editable.Factory.getInstance().newEditable(currentTaskName)
         binding.estimatedTimeInput.text = Editable.Factory.getInstance().newEditable(currentEstimatedDays.toString())
         binding.newTaskProgressInput.text = Editable.Factory.getInstance().newEditable(intent.extras?.get("task_progress").toString())
@@ -102,6 +106,7 @@ class NewTaskScreen : AppCompatActivity() {
         currentTask?.deadline = newEditedTask.deadline
         currentTask?.estimatedTime = newEditedTask.estimatedTime
         currentTask?.priority = newEditedTask.priority
+        startMainActivity()
     }
 
     fun showTimePickerDialog(v: View){
@@ -132,9 +137,7 @@ class NewTaskScreen : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun addNewTask(){
         DataStorage.addTask(getTaskFromInputs())
-        var intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        finish()
+        startMainActivity()
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -192,6 +195,12 @@ class NewTaskScreen : AppCompatActivity() {
 
     fun setCurrentPriorityLevel(priorityLevel: String){
         this.priorityLevel = checkPriority(priorityLevel)
+    }
+
+    private fun startMainActivity(){
+        var intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
 }

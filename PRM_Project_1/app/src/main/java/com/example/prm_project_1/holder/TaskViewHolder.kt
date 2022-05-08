@@ -12,13 +12,32 @@ class TaskViewHolder(private val layoutBinding: TaskListItemBinding) : RecyclerV
   fun bind(task: Task) = with(layoutBinding) {
     taskName.text = task.name
     taskDeadline.text = createDisplayStringFromDate(task.deadline)
-    taskPriority.text = task.priority.toString()
+    taskPriority.text = getDisplayPriorityLevel(task.priority)
     taskProgress.text = task.progress.toString().split(".")[0].plus("%")
   }
 
   @SuppressLint("NewApi")
   private fun createDisplayStringFromDate(date: LocalDateTime) : String {
-    return "${date.year}-${date.monthValue}-${date.dayOfMonth} ${date.hour}:${date.minute}"
+    return "${getCorrectDateElementString(date.year)}-" +
+            "${getCorrectDateElementString(date.monthValue)}-" +
+            "${getCorrectDateElementString(date.dayOfMonth)} " +
+            "${getCorrectDateElementString(date.hour)}:" +
+            "${getCorrectDateElementString(date.minute)}"
+  }
+
+  private fun getCorrectDateElementString(elementOfDate: Int): String{
+    if(elementOfDate < 10)
+      return "0$elementOfDate"
+    return "$elementOfDate"
+  }
+
+  private fun getDisplayPriorityLevel(priorityLevel: Int): String{
+    when(priorityLevel) {
+      1 -> return "Niski"
+      2 -> return "Sredni"
+      3 -> return "Wysoki"
+    }
+    return "Nie ma"
   }
 
 }

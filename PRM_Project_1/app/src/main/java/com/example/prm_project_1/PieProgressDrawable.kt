@@ -2,6 +2,7 @@ package com.example.prm_project_1
 
 import android.graphics.*
 import android.graphics.drawable.Drawable
+import android.graphics.drawable.shapes.RectShape
 
 class PieProgressDrawable(progress: Double) : Drawable() {
 
@@ -29,7 +30,7 @@ class PieProgressDrawable(progress: Double) : Drawable() {
         super.onBoundsChange(bounds)
         innerBounds = RectF(bounds)
         boundsF = RectF(bounds)
-        var halfBorder = (paint.strokeWidth / (2F + 0.5F))
+        var halfBorder = (paint.strokeWidth/ (2F + 0.5F))
         innerBounds.inset(halfBorder, halfBorder)
     }
 

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="3dp"
-    app:cardCornerRadius="10dp" >
+    app:cardCornerRadius="10dp"
+    android:background="@drawable/fill_background_violet">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,19 +17,26 @@
             android:id="@+id/taskName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="84dp"
             android:layout_marginTop="30dp"
+            android:letterSpacing="0.05"
             android:text="TextView"
+            android:textSize="24sp"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="#FF8600B3"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/taskNameLabel"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/taskDeadline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="84dp"
-            android:layout_marginTop="26dp"
+            android:layout_width="100dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="10dp"
             android:text="TextView"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/taskDeadlineLabel"
             app:layout_constraintTop_toBottomOf="@+id/taskName" />
 
@@ -36,24 +44,24 @@
             android:id="@+id/taskPriority"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="10dp"
             android:text="TextView"
-            app:layout_constraintStart_toEndOf="@+id/taskPriorityLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/taskDeadline" />
 
         <TextView
             android:id="@+id/taskProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="76dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="22dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
             android:text="TextView"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/taskProgressLabel"
-            app:layout_constraintTop_toBottomOf="@+id/taskPriority"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/taskPriority" />
 
         <TextView
             android:id="@+id/taskNameLabel"
@@ -61,9 +69,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
-            android:textAlignment="center"
             android:text="@string/task_name_label"
+            android:textAlignment="center"
             android:textSize="18dp"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,9 +82,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
-            android:textAlignment="center"
             android:text="@string/task_deadline_label"
+            android:textAlignment="center"
             android:textSize="18dp"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/taskNameLabel" />
 
@@ -85,9 +95,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
-            android:textAlignment="center"
             android:text="@string/task_priority_label"
+            android:textAlignment="center"
             android:textSize="18dp"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/taskDeadlineLabel" />
 
@@ -101,13 +112,13 @@
             android:text="@string/task_progress_label"
             android:textAlignment="center"
             android:textSize="18dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/taskPriorityLabel" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </androidx.cardview.widget.CardView>
