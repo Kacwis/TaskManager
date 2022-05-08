@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewTaskScreen">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/newEditTaskTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="84dp"
+                android:text="@string/new_task_title"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/newTaskNameLabel"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="56dp"
+                android:text="@string/task_name_label"
+                android:textAlignment="center"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/newEditTaskTitle" />
+
+            <TextView
+                android:id="@+id/newTaskDeadlineLabel"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="44dp"
+                android:text="@string/task_deadline_label"
+                android:textAlignment="center"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/newTaskNameLabel" />
+
+            <TextView
+                android:id="@+id/newTaskPriorityLabel"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="100dp"
+                android:text="@string/task_priority_label"
+                android:textAlignment="center"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/newTaskDeadlineLabel" />
+
+            <TextView
+                android:id="@+id/newTaskProgress"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="56dp"
+                android:text="@string/task_progress_label"
+                android:textAlignment="center"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/newTaskPriorityLabel" />
+
+            <EditText
+                android:id="@+id/newTaskNameInput"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="44dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text=""
+                android:textAlignment="center"
+                app:layout_constraintStart_toEndOf="@+id/newTaskNameLabel"
+                app:layout_constraintTop_toBottomOf="@+id/newEditTaskTitle" />
+
+            <EditText
+                android:id="@+id/newTaskProgressInput"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="40dp"
+                android:ems="10"
+                android:inputType="number"
+                android:text="0"
+                android:textAlignment="center"
+                app:layout_constraintStart_toEndOf="@+id/newTaskProgress"
+                app:layout_constraintTop_toBottomOf="@+id/priorityLevelSpinner" />
+
+            <Button
+                android:id="@+id/addEditTaskButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="160dp"
+                android:layout_marginTop="52dp"
+                android:text="@string/add_task_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/estimatedTimeInput" />
+
+            <Button
+                android:id="@+id/testButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/time_logo"
+                app:layout_constraintStart_toEndOf="@+id/newTaskDeadlineLabel"
+                app:layout_constraintTop_toBottomOf="@+id/dateTimeOutput" />
+
+            <Button
+                android:id="@+id/pickDateButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/calendar_icon"
+                app:layout_constraintStart_toEndOf="@+id/testButton"
+                app:layout_constraintTop_toBottomOf="@+id/dateTimeOutput" />
+
+            <TextView
+                android:id="@+id/dateTimeOutput"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:text="2012-02-02 10:02"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/newTaskDeadlineLabel"
+                app:layout_constraintTop_toBottomOf="@+id/newTaskNameInput" />
+
+            <Spinner
+                android:id="@+id/priorityLevelSpinner"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="112dp"
+                android:spinnerMode="dropdown"
+                app:layout_constraintStart_toEndOf="@+id/newTaskPriorityLabel"
+                app:layout_constraintTop_toBottomOf="@+id/dateTimeOutput" />
+
+            <TextView
+                android:id="@+id/estimatedTimeLabel"
+                android:layout_width="122dp"
+                android:layout_height="46dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="48dp"
+                android:text="@string/estimated_time_label"
+                android:textAlignment="center"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/newTaskProgress" />
+
+            <EditText
+                android:id="@+id/estimatedTimeInput"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="36dp"
+                android:ems="10"
+                android:inputType="number"
+                android:text="0"
+                android:textAlignment="center"
+                app:layout_constraintStart_toEndOf="@+id/estimatedTimeLabel"
+                app:layout_constraintTop_toBottomOf="@+id/newTaskProgressInput" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

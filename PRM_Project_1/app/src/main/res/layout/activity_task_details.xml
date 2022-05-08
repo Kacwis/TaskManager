@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TaskDetails">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/taskDetailsTitleName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="76dp"
+                android:text="TextView"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/taskDetailsDeadlineLabel"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="76dp"
+                android:textAlignment="center"
+                android:text="@string/task_deadline_label"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/taskDetailsTitleName" />
+
+            <TextView
+                android:id="@+id/taskDetailsEstimatedTimeLabel"
+                android:layout_width="130dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="60dp"
+                android:text="@string/estimated_time_label"
+                android:textAlignment="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/taskDetailsProgressLabel"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="88dp"
+                android:text="@string/task_progress_label"
+                android:textAlignment="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/taskDetailsEstimatedTimeLabel" />
+
+            <TextView
+                android:id="@+id/taskDetailsDeadlineOutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="76dp"
+                android:text="TextView"
+                app:layout_constraintStart_toEndOf="@+id/taskDetailsDeadlineLabel"
+                app:layout_constraintTop_toBottomOf="@+id/taskDetailsTitleName" />
+
+            <TextView
+                android:id="@+id/taskDetailsEstimatedTimeOutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="140dp"
+                android:text="TextView"
+                app:layout_constraintStart_toEndOf="@+id/taskDetailsEstimatedTimeLabel"
+                app:layout_constraintTop_toBottomOf="@+id/taskDetailsDeadlineOutput" />
+
+            <Button
+                android:id="@+id/returnButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="140dp"
+                android:layout_marginBottom="100dp"
+                android:text="@string/return_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTaskButton" />
+
+            <ImageView
+                android:id="@+id/progressPieChart"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="36dp"
+                app:layout_constraintStart_toEndOf="@+id/taskDetailsProgressLabel"
+                app:layout_constraintTop_toBottomOf="@+id/taskDetailsEstimatedTimeOutput"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="60dp"
+                android:text="@string/task_start_date_label"
+                android:textAlignment="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/taskDetailsDeadlineLabel" />
+
+            <TextView
+                android:id="@+id/startingDateOutput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="60dp"
+                android:text="TextView"
+                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/taskDetailsDeadlineOutput" />
+
+            <Button
+                android:id="@+id/changeProgressButton"
+                android:layout_width="82dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="12dp"
+                android:text="Zmien"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/taskDetailsProgressLabel" />
+
+            <Spinner
+                android:id="@+id/progressSpinner"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="100dp"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@+id/taskDetailsProgressLabel"
+                app:layout_constraintTop_toBottomOf="@+id/taskDetailsEstimatedTimeOutput" />
+
+            <Button
+                android:id="@+id/progressChangeConfirmButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/confirmation_logo"
+                android:visibility="gone"
+                android:text=""
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/taskDetailsProgressLabel" />
+
+            <Button
+                android:id="@+id/progressChangeCancelButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/cancel_icon"
+                android:visibility="gone"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/progressChangeConfirmButton"
+                app:layout_constraintTop_toBottomOf="@+id/taskDetailsProgressLabel" />
+
+            <Button
+                android:id="@+id/editTaskButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="140dp"
+                android:layout_marginTop="92dp"
+                android:text="@string/edit_task_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/taskDetailsProgressLabel" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
